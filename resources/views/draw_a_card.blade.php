@@ -19,21 +19,38 @@
                 height: 100vh;
                 margin: 0;
             }
+            .stack {
+              display: flex;
+              flex-direction: column;
+              width: 125px;
+            }
         </style>
     </head>
     <body>
-      <div class=stack>
+      <div class=cards>
+        <div class=stack>
+          <div class=card>
+            <img src = "{{ asset('/img/back.png') }}" />
+          </div>
+          @for ( $i = 0; $i < 54 - $game->turn; $i++)
+            <img src = "{{ asset('/img/strip.png') }}" />
+          @endfor
+        </div>
+        <div class=stack>
+          <div class=card>
+            @isset($card)
+              <img src = "{{ asset($img_src) }}" />
+              <p> {{$card->suit.$card->value}} </p>
+            @endisset
+            @for ( $i = 0; $i < $game->turn - 1; $i++)
+              <img src = "{{ asset('/img/strip.png') }}" />
+            @endfor
+          </div>
+        </div>
         <div class=card>
           <img src = "{{ asset('/img/back.png') }}" />
         </div>
-        @for ( $i = 0; $i < 54 - $game->turn; $i++)
-          <img src = "{{ asset('/img/strip.png') }}" />
-        @endfor
       </div>
-      @isset($card)
-        <img src = "{{ asset($img_src) }}" />
-        <p> {{$card->suit.$card->value}} </p>
-      @endisset
       <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
         draw a card
       </a>
