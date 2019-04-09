@@ -37,7 +37,6 @@ class GameController extends Controller
 
       return view('draw_a_card', ['game' => $game,
                                   'probability' => $probability ]);
-      // return ['redirect' => route( 'draw_a_card' ,['game_id' => $game->id]) ];
     }
 
     public function draw_a_card(Request $request)
@@ -45,20 +44,23 @@ class GameController extends Controller
         $game = Game::find($request->game_id);
         $deck = Deck::find($game->deck_id);
         $card = $deck->cards()->where('position', $game->turn)->first();
-        $probability = $this->get_probability($game->turn);
+
 
         if( $card->toString() == $game->selected_card ) {
-          return view('found_it');
+          $probability = $this->get_probability($game->turn);
+          return view('found_it', [ 'probability' => $probability,
+                                    'card' => $card ]);
         }
         $img_src = $this->card_img_src($card->suit, $card->value);
 
         $game->turn = $game->turn + 1;
+        $probability = $this->get_probability($game->turn);
         $game->save();
 
-        return view('draw_a_card', ['game' => $game,
-                                    'card' => $card,
-                                    'img_src' => $img_src,
-                                    'probability' => $probability ]); // + add probability !
+        return view('draw_a_card', [ 'game' => $game,
+                                     'card' => $card,
+                                     'img_src' => $img_src,
+                                     'probability' => $probability ]); // + add probability !
     }
 
     public function get_probability($turn) {

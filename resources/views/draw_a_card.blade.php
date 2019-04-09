@@ -22,6 +22,15 @@
         </style>
     </head>
     <body>
+      <div class=stack>
+        <div class=card>
+          <img src = "{{ asset('/img/back.png') }}" />
+          <p> {{$card->suit.$card->value}} </p>
+        </div>
+        @for ( $i = 0; $i < 54 - $game->turn; $i++)
+          <img src = "{{ asset('/img/strip.png') }}" />
+        @endfor
+      </div>
       @isset($card)
         <img src = "{{ asset($img_src) }}" />
         <p> {{$card->suit.$card->value}} </p>
