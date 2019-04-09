@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Draw a card</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -23,12 +23,13 @@
               display: flex;
               justify-content: center;
               align-items: flex-end;
-              height: 300px;
+              height: 66vh;
             }
             .stack {
               display: flex;
               flex-direction: column;
               width: 125px;
+              margin: 30px;
             }
         </style>
     </head>
@@ -47,13 +48,15 @@
             @isset($card)
               <img src = "{{ asset($img_src) }}" />
             @endisset
-            @for ( $i = 0; $i < $game->turn - 1; $i++)
-              <img src = "{{ asset('/img/strip.png') }}" />
-            @endfor
           </div>
+          @for ( $i = 0; $i <= $game->turn - 1; $i++)
+            <img src = "{{ asset('/img/strip.png') }}" />
+          @endfor
         </div>
-        <div class=card>
-          <img src = "{{ asset('/img/back.png') }}" />
+        <div class=stack>
+          <div class=card>
+            <img src = "{{ asset('/img/back.png') }}" />
+          </div>
         </div>
       </div>
       <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >

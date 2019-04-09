@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Pick a card</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -28,11 +28,11 @@
     <body>
       <h1> Pick a card: </h1>
       @foreach( $card_options as $card => $card_src )
-        <div class=card>
+        <span class=card>
           <a href="{{ route('initialize_game', ['chosen_card' => $card]) }}" >
             <img src = "{{ asset($card_src) }}" />
           </a>
-        </div>
+        </span>
       @endforeach
     </body>
 </html>
