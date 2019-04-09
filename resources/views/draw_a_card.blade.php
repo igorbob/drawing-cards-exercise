@@ -32,13 +32,18 @@
               width: 125px;
               margin: 30px;
             }
+            .card {
+              height: 182px;
+            }
         </style>
     </head>
     <body>
       <div class=cards>
         <div class=stack>
           <div class=card>
-            <img src = "{{ asset('/img/back.png') }}" />
+            <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
+              <img src = "{{ asset('/img/back.png') }}" />
+            </a>
           </div>
           @for ( $i = 0; $i < 54 - $game->turn; $i++)
             <img src = "{{ asset('/img/strip.png') }}" />
