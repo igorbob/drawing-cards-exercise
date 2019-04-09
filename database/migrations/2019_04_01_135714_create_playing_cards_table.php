@@ -14,6 +14,7 @@ class CreatePlayingCardsTable extends Migration
     public function up()
     {
         Schema::create('playing_cards', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('suit');
             $table->string('value');
             $table->integer('deck_id')->unsigned()->nullable(false);
