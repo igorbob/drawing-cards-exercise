@@ -19,6 +19,12 @@
                 height: 100vh;
                 margin: 0;
             }
+            .cards {
+              display: flex;
+              justify-content: center;
+              align-items: flex-end;
+              height: 300px;
+            }
             .stack {
               display: flex;
               flex-direction: column;
@@ -40,7 +46,6 @@
           <div class=card>
             @isset($card)
               <img src = "{{ asset($img_src) }}" />
-              <p> {{$card->suit.$card->value}} </p>
             @endisset
             @for ( $i = 0; $i < $game->turn - 1; $i++)
               <img src = "{{ asset('/img/strip.png') }}" />

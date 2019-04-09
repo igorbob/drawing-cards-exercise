@@ -19,14 +19,20 @@
                 height: 100vh;
                 margin: 0;
             }
+            .card {
+              width: 125px;
+              height: 188px;
+            }
         </style>
     </head>
     <body>
       <h1> Pick a card: </h1>
       @foreach( $card_options as $card => $card_src )
-        <a href="{{ route('initialize_game', ['chosen_card' => $card]) }}" >
-          <img src = "{{ asset($card_src) }}" />
-        </a>
+        <div class=card>
+          <a href="{{ route('initialize_game', ['chosen_card' => $card]) }}" >
+            <img src = "{{ asset($card_src) }}" />
+          </a>
+        </div>
       @endforeach
     </body>
 </html>
