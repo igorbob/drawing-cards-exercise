@@ -13,6 +13,7 @@
         <style>
             html, body {
                 background: url(http://api.thumbr.it/whitenoise-361x370.png?background=1d8217ff&noise=074a14&density=76&opacity=14);
+                background-color: #1E7C16;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
