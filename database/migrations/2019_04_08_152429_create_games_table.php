@@ -18,7 +18,7 @@ class CreateGamesTable extends Migration
             $table->integer('deck_id')->unsigned()->nullable(false);
             $table->integer('turn')->unsigned();
             $table->string('selected_card');
-            $table->timestamps('');
+            $table->timestamps();
         });
     }
 
