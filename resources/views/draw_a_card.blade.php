@@ -29,7 +29,7 @@
       <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
         draw a card
       </a>
-      <p> {{round($probability)}}% chance of getting {{$game->selected_card}} </p>
+      <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
 
     </body>
 </html>
