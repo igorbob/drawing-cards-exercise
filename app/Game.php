@@ -10,6 +10,8 @@ class Game extends Model
 {
   protected $fillable = ['turn'];
 
+  protected $primaryKey = 'id';
+
   public function deck() {
     return $this->hasOne('App\Deck');
   }

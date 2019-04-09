@@ -21,6 +21,4 @@ Route::get('/draw_a_card', 'GameController@draw_a_card')->name('draw_a_card');
 
 Route::any('adminer', '\Miroc\LaravelAdminer\AdminerController@index');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
