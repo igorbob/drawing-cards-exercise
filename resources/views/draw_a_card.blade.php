@@ -73,13 +73,10 @@
         @if ($is_match)
           <script> alert("Got it, the chance was {{$probability}}%") </script>
           <p><a href="{{ route('pick_a_card')}}" >
-            Back to picking a card.
+            pick another card
           </a></p>
         @else
           <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
-          <p><a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
-            draw a card
-          </a></p>
         @endif
       </div>
     </body>
