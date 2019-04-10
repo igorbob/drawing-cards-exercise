@@ -18,7 +18,6 @@
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
-                margin: 0;
             }
             .cards {
               display: flex;
@@ -34,6 +33,11 @@
             }
             .card {
               height: 182px;
+            }
+            #info p {
+              text-align: center;
+              color: white;
+              font-size: 14pt;
             }
         </style>
     </head>
@@ -65,22 +69,18 @@
           </div>
         </div>
       </div>
-      @if ($is_match)
-        <script> alert("Got it, the chance was {{$probability}}%") </script>
-        <a href="{{ route('pick_a_card')}}" >
-          Back to picking a card.
-        </a>
-        <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
-        <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
-          draw a card
-        </a>
-      @else
-        <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
-          draw a card
-        </a>
-        <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
-      @endif
-
-
+      <div id=info>
+        @if ($is_match)
+          <script> alert("Got it, the chance was {{$probability}}%") </script>
+          <a href="{{ route('pick_a_card')}}" >
+            Back to picking a card.
+          </a>
+        @else
+          <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
+            draw a card
+          </a>
+          <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
+        @endif
+      </div>
     </body>
 </html>
