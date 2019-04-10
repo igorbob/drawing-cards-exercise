@@ -72,7 +72,7 @@
         <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
       @else
         <script> alert("Got it, the chance was {{$probability}}%") </script>
-        <a href="{{ route('/')}}" >
+        <a href="{{ route('pick_a_card')}}" >
           Back to picking a card.
         </a>
         <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
