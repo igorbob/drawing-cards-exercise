@@ -27,8 +27,10 @@ class GameController extends Controller
     {
       $game = new Game();
       $game->selected_card = $selected_card;
-      $suit_value = $this->suit_and_value($selected_card);
-      $game->selected_card = $this->card_img_src();
+
+      $suit = substr($selected_card, 0,1);
+      $value = substr($selected_card, 1);
+      $game->selected_card_img_src = $this->card_img_src($suit, $value);
 
       $deck = new Deck();
       $deck->save();
@@ -69,13 +71,6 @@ class GameController extends Controller
     public function get_probability($turn) {
         $probability = (1 / (53 - $turn)) * 100;
         return round($probability, 1);
-    }
-
-    public function suit_and_value($card)
-    {
-      $suit = substr($card, 0,1);
-      $value = substr($card, 1);
-      return [ 'suit' => $suit, 'value' => $value ];
     }
 
     public function card_img_src($suit, $value)
