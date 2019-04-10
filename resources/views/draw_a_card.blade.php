@@ -61,7 +61,7 @@
         </div>
         <div class=stack>
           <div class=card>
-            <img src = "{{ asset('/img/back.png') }}" />
+            <img src = "{{ asset($game->selected_card_img_src) }}" />
           </div>
         </div>
       </div>

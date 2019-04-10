@@ -14,7 +14,7 @@
             html, body {
                 background-image: url('/img/bg.png');
                 background-color: #1E640F;
-                color: #636b6f;
+                color: #f2fcef;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -30,7 +30,8 @@
       <h1> Pick a card: </h1>
       @foreach( $card_options as $card => $card_src )
         <span class=card>
-          <a href="{{ route('initialize_game', ['chosen_card' => $card]) }}" >
+          <a href="{{ route('initialize_game', ['chosen_card' => $card,
+                                                'chosen_card_img' => $card_src]) }}" >
             <img src = "{{ asset($card_src) }}" />
           </a>
         </span>
