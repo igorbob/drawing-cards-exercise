@@ -39,7 +39,7 @@ class GameController extends Controller
       $game->turn = 1;
       $game->save();
       $probability = $this->get_probability($game->turn);
-      $is_match = FALSE;
+      $is_match = false;
 
       return view('draw_a_card', ['game' => $game,
                                   'is_match' => $is_match,
@@ -52,7 +52,7 @@ class GameController extends Controller
         $deck = Deck::find($game->deck_id);
         $card = $deck->cards()->where('position', $game->turn)->first();
         $img_src = $this->card_img_src($card->suit, $card->value);
-        $is_match = FALSE;
+        $is_match = false;
 
         if( $card->toString() == $game->selected_card ) {
           $is_match = TRUE;
