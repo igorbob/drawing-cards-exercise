@@ -50,10 +50,10 @@ class GameController extends Controller
         $deck = Deck::find($game->deck_id);
         $card = $deck->cards()->where('position', $game->turn)->first();
         $img_src = $this->card_img_src($card->suit, $card->value);
-        $found_it = false;
+        $is_match = false;
 
         if( $card->toString() == $game->selected_card ) {
-          $found_it = true;
+          $is_match = true;
         } else {
           $game->turn = $game->turn + 1;
         }
@@ -62,7 +62,7 @@ class GameController extends Controller
         return view('draw_a_card', [ 'game' => $game,
                                      'card' => $card,
                                      'img_src' => $img_src,
-                                     'found_it' => $found_it,
+                                     'is_match' => $is_match,
                                      'probability' => $probability ]); // + add probability !
     }
 
