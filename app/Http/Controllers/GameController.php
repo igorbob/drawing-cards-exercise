@@ -59,11 +59,7 @@ class GameController extends Controller
         }
         $probability = $this->get_probability($game->turn);
         //$game->save();
-        return view('draw_a_card', [ 'game' => $game,
-                                     'card' => $card,
-                                     'img_src' => $img_src,
-                                     'is_match' => $is_match,
-                                     'probability' => $probability ]); // + add probability !
+        return view('draw_a_card', compact('game','card','img_src','is_match','probability']);
     }
 
     public function get_probability($turn) {
