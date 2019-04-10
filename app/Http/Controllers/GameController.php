@@ -50,10 +50,10 @@ class GameController extends Controller
         $deck = Deck::find($game->deck_id);
         $card = $deck->cards()->where('position', $game->turn)->first();
         $img_src = $this->card_img_src($card->suit, $card->value);
-        $is_match = False;
+        $is_match = FALSE;
 
         if( $card->toString() == $game->selected_card ) {
-          $is_match = True;
+          $is_match = TRUE;
         } else {
           $game->turn = $game->turn + 1;
         }
