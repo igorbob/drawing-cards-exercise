@@ -28,34 +28,6 @@
     </head>
     <body>
       <h1> Pick a card: </h1>
-
-      {{-- <form action="{{ route('initialize_game',['chosen_card' => $_POST['suit'] . $_POST['value']]) }}" method="post">
-        <p> suit </p>
-        <select name="suit">
-            <option selected="selected">C</option>
-            <option>D</option>
-            <option>H</option>
-            <option>S</option>
-        </select>
-        <p> value </p>
-        <select name="value">
-            <option selected="selected">A</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-            <option>J</option>
-            <option>Q</option>
-            <option>K</option>
-        </select>
-        <input type="submit">
-      <input type="submit" value="Submit"> --}}
-
       @foreach( $card_options as $card => $card_src )
         <span class=card>
           <a href="{{ route('initialize_game', ['chosen_card' => $card]) }}" >
