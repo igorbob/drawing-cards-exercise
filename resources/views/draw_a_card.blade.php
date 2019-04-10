@@ -65,10 +65,19 @@
           </div>
         </div>
       </div>
-      <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
-        draw a card
-      </a>
-      <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
+      @if ($found_it)
+        <a href="{{ route('draw_a_card', ['game_id' => $game->id]) }}" >
+          draw a card
+        </a>
+        <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
+      @else
+        <script> alert("Got it, the chance was {{$probability}}%") </script>
+        <a href="{{ route('/')}}" >
+          Back to picking a card.
+        </a>
+        <p> {{$probability}}% chance of getting {{$game->selected_card}} </p>
+      @endif
+
 
     </body>
 </html>

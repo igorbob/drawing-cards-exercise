@@ -49,22 +49,20 @@ class GameController extends Controller
         $game = Game::find($request->game_id);
         $deck = Deck::find($game->deck_id);
         $card = $deck->cards()->where('position', $game->turn)->first();
-
+        $img_src = $this->card_img_src($card->suit, $card->value);
+        $found_it = false;
 
         if( $card->toString() == $game->selected_card ) {
-          $probability = $this->get_probability($game->turn);
-          return view('found_it', [ 'probability' => $probability,
-                                    'card' => $card ]);
+          $found_it = true;
+        } else {
+          $game->turn = $game->turn + 1;
         }
-        $img_src = $this->card_img_src($card->suit, $card->value);
-
-        $game->turn = $game->turn + 1;
         $probability = $this->get_probability($game->turn);
-        $game->save();
-
+        //$game->save();
         return view('draw_a_card', [ 'game' => $game,
                                      'card' => $card,
                                      'img_src' => $img_src,
+                                     'found_it' => $found_it,
                                      'probability' => $probability ]); // + add probability !
     }
 
