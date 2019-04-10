@@ -29,7 +29,7 @@
     <body>
       <h1> Pick a card: </h1>
 
-      <form action="{{ route('initialize_game',['chosen_card' => $_POST['suit'] . $_POST['value']]) }}" method="post">
+      {{-- <form action="{{ route('initialize_game',['chosen_card' => $_POST['suit'] . $_POST['value']]) }}" method="post">
         <p> suit </p>
         <select name="suit">
             <option selected="selected">C</option>
@@ -54,7 +54,7 @@
             <option>K</option>
         </select>
         <input type="submit">
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit"> --}}
 
       @foreach( $card_options as $card => $card_src )
         <span class=card>
