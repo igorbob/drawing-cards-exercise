@@ -23,7 +23,7 @@ class GameController extends Controller
       return view('pick_a_card', ['card_options' => $card_options]);
     }
 
-    public function initialize_game($selected_card,$selected_card_img) //
+    public function initialize_game($selected_card) //
     {
       $game = new Game();
       $game->selected_card = $selected_card;

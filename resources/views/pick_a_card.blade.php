@@ -30,8 +30,7 @@
       <h1> Pick a card: </h1>
       @foreach( $card_options as $card => $card_src )
         <span class=card>
-          <a href="{{ route('initialize_game', ['chosen_card' => $card,
-                                                'chosen_card_img' => $card_src]) }}" >
+          <a href="{{ route('initialize_game', ['chosen_card' => $card]) }}" >
             <img src = "{{ asset($card_src) }}" />
           </a>
         </span>
