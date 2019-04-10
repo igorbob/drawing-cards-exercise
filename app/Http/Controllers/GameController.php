@@ -58,9 +58,10 @@ class GameController extends Controller
           $is_match = TRUE;
         } else {
           $game->turn = $game->turn + 1;
+          $game->save();
         }
         $probability = $this->get_probability($game->turn);
-        //$game->save();
+
         return view('draw_a_card', compact( 'game',
                                             'card',
                                             'img_src',
