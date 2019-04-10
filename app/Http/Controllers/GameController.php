@@ -28,7 +28,7 @@ class GameController extends Controller
       $game = new Game();
       $game->selected_card = $selected_card;
       $suit_value = $this->suit_and_value($selected_card);
-      $game->selected_card = $this-.card_img_src();
+      $game->selected_card = $this->card_img_src();
 
       $deck = new Deck();
       $deck->save();
