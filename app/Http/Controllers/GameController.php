@@ -49,13 +49,13 @@ class GameController extends Controller
 	public function destroy_game($game_id) {
 		$game = Game::find( $request->game_id );
 		$deck = Deck::find( $game->deck_id );
-		for( $card in $deck->cards() ) {
+		foreach( $deck->cards() as $card ) {
 			$card->delete();
 		}
 		$deck->delete();
 		$game->delete();
 
-		return route( 'pick_a_card' )
+		return route( 'pick_a_card' );
 	}
 
 	public function draw_a_card( Request $request )
@@ -76,7 +76,7 @@ class GameController extends Controller
 
 		return view( 'draw_a_card', [ 'game' => $game,
 											   'card' => $card,
-											   'img_src', => $img_src,
+											   'img_src' => $img_src,
 											   'is_match' => $is_match,
 											   'probability' => $probability ] );
 	}
