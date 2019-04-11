@@ -8,14 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-	protected $fillable = ['turn'];
+	protected $fillable = [ 'turn' ];
 
 	protected $primaryKey = 'id';
 
 	public function deck() {
-		return $this->hasOne('App\Deck');
+		return $this->hasOne( 'App\Deck' );
 	}
 	public function selected_card() {
-		return $this->hasOne('App\PlayingCard');
+		return $this->hasOne( 'App\PlayingCard' );
 	}
 }
