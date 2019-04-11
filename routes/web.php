@@ -12,13 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('pick_a_card');
+	return view('pick_a_card');
 });
 
 Route::get('/', 'GameController@pick_a_card')->name('pick_a_card');
 Route::get('/initialize/{card_id}', 'GameController@initialize_game')->name('initialize_game');
 Route::get('/draw_a_card', 'GameController@draw_a_card')->name('draw_a_card');
-
-Route::any('adminer', '\Miroc\LaravelAdminer\AdminerController@index');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/destroy', 'GameController@destroy_game')->name('destroy');

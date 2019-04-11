@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlayingCard extends Model
 {
-  protected $fillable = ['suit','value','position'];
+	protected $fillable = ['suit','value','position'];
 
-  public function toString() {
-    return $this->suit . $this->value;
-  }
+	public function toString() {
+		return $this->suit . $this->value;
+	}
 }
